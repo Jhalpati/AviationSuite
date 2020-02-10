@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+  min-height: 10vh;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: 'Roboto', sans-serif;
+
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-self: center;
+  min-height: 10vh;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  color: rgb(17, 17, 16);
+}
+
+.nav-links{
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  text-shadow: black;
+  font-weight: 300;
+
+}
+
+.search-form{
+  min-height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar{
+  width: 50%;
+  border: none;
+  padding: 10px;
+}
+
+.search-button{
+  background: lightcoral;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+}
+
+/* .airport-info{
+  display: -webkit-flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+} */
