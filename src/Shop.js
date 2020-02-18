@@ -21,13 +21,17 @@ function Shop() {
     const fetchItems = async () => {
       const response = await fetch(
   //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
-        `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}` );
-     
-  
+        `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}`);
+        
+      
+    
   
     const data = await response.json();
        console.log(data.airports);
       setItems(data.airports);
+
+
+      
     };
     fetchItems();
   }, [query])
@@ -60,6 +64,8 @@ function Shop() {
                   <Link to={`/shop/${data.fs}`}>{data.iata}: {data.name}, {data.countryName}</Link>
               </h1>              
             ))} 
+
+
           
 
     </div>

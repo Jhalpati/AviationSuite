@@ -16,7 +16,7 @@ function Arrivals() {
 
   const [data, setItems] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('LAX');
+  const [query, setQuery] = useState('LHR');
 
  
   useEffect(() =>{
@@ -27,7 +27,7 @@ function Arrivals() {
   const fetchItems = async () => {
     const response = await fetch(
 //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
-      `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/${query}/arr/2020/2/5/17?appId=544b084a&appKey=5f2e41dee933f04c8eb95d74ef52b0e9&utc=false&numHours=1&maxFlights=10` );
+      `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/${query}/arr/2020/2/18/17?appId=544b084a&appKey=5f2e41dee933f04c8eb95d74ef52b0e9&utc=false&numHours=1&maxFlights=10` );
    
 
 
@@ -63,6 +63,9 @@ function Arrivals() {
               </h1>              
               
             ))} 
+
+{/* <Link to={`/news/${data.carrierFsCode+data.flightNumber}`}> */}
+
           
 
     </div>

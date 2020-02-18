@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import './App.css';
-
+import {Link} from 'react-router-dom';
 
 function AirlineDetails({match}) {
 
@@ -36,8 +36,11 @@ function AirlineDetails({match}) {
          <h1>Name: {item.name}</h1> 
         <h2>IATA: {item.iata}</h2>
         <h4>Contact: {item.phoneNumber}</h4>
+        <Link to={`/news/${item.name}`}>News about: {item.name}</Link>
         
     </div>
+
+    
   );
 }
 

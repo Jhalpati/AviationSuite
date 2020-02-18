@@ -19,6 +19,8 @@ function Nav() {
                 <Link to="/arrivals">
                 <li>Arrivals</li>
                 </Link>
+                {/* <Link to="/news">
+                <li>News</li></Link> */}
             </ul>
         </nav>
   );
