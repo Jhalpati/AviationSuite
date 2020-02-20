@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import './App.css';
+import style from './news.module.css';
 import {Link} from 'react-router-dom';
 
 
@@ -27,8 +27,8 @@ function News({ match }) {
         `http://newsapi.org/v2/everything?q=${match.params.id}&apiKey=6e257f34188c4b608d5558758b35bf2f`);
   
         const item = await fetchNews.json();
-        console.log(item.articles[0],[1]);
-        setItem(item.articles[0],[1]);
+        console.log(item.articles);
+        setItem(item.articles[0],[1],[2]);
 
         
         
@@ -50,12 +50,16 @@ function News({ match }) {
 
 
   return (
-    <div>
+    <div className={style.news}>
       <h1>{item.title}</h1>
-      <h2>{item.author}</h2>
+      <h3>Author: {item.author}</h3>
       <p>{item.description}</p>
+      <a target="_blank" href={item.url}></a>
+      <a target="_blank" href={item.url}>Read more</a>
       
-      <img src={item.urlToImage}></img>
+      <img src={item.urlToImage}  width="50%"></img>
+
+
 
         
     </div>

@@ -13,6 +13,7 @@ nav{
   min-height: 10vh;
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
   color: rgb(17, 17, 16);
+  
 }
 
 .nav-links{
@@ -22,7 +23,7 @@ nav{
   align-items: center;
   list-style: none;
   text-shadow: black;
-  font-weight: 300;
+  font-weight: 500;
 
 }
 
@@ -45,6 +46,8 @@ nav{
   padding: 10px 20px;
   color: white;
 }
+
+
 
 /* .airport-info{
   display: -webkit-flex;
