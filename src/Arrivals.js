@@ -27,12 +27,12 @@ function Arrivals() {
   const fetchItems = async () => {
     const response = await fetch(
 //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
-      `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/${query}/arr/2020/2/18/17?appId=544b084a&appKey=5f2e41dee933f04c8eb95d74ef52b0e9&utc=false&numHours=1&maxFlights=10` );
+      `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/${query}/arr/2020/2/28/17?appId=544b084a&appKey=5f2e41dee933f04c8eb95d74ef52b0e9&utc=false&numHours=1&maxFlights=10` );
    
-
+//Remember to change the date
 
   const data = await response.json();
-     console.log(data.flightStatuses);
+    console.log(data.flightStatuses);
     setItems(data.flightStatuses);
   };
 
