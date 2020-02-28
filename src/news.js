@@ -28,7 +28,8 @@ function News({ match }) {
   
         const item = await fetchNews.json();
         console.log(item.articles);
-        setItem(item.articles[0],[1],[2]);
+        setItem(item.articles);
+        // setItem(item.articles[0],[1],[2]);
 
         
         
@@ -51,18 +52,42 @@ function News({ match }) {
 
   return (
     <div className={style.news}>
-      <h1>{item.title}</h1>
-      <h3>Author: {item.author}</h3>
+      {/* <h1>{item.title}</h1>
+      <h3>Author: {item.author} | Date published: {item.publishedAt}</h3>
+    
       <p>{item.description}</p>
       <a target="_blank" href={item.url}></a>
       <a target="_blank" href={item.url}>Read more</a>
       
-      <img src={item.urlToImage}  width="50%"></img>
+      <img src={item.urlToImage}  width="50%"></img> */}
+            <h1>Latest headlines about {match.params.id}</h1>
+      {item.map(data => (
+        
+    <React.Fragment>
+
+      <h2 key={data.title}>{data.title} | <a target="_blank" href={data.url}>Read more</a>
+      </h2>  
+      <img src={data.urlToImage} width="30%"/>
+      
+
+      </React.Fragment>
+
+              
+              
+               
+            
+              
+              
+        ))} 
+
+      
 
 
 
         
     </div>
+
+    
   );
 }
 
