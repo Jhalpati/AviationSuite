@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 
 
+
 function Arrivals() {
 
 
@@ -23,16 +24,25 @@ function Arrivals() {
     fetchItems();
   }, [query])
   
+  //https://aboutreact.com/react-native-get-current-date-time/
+  var date = new Date().getDate(); //Current Date
+  var month = new Date().getMonth() + 1; //Current Month
+  var year = new Date().getFullYear();
+  var hours = new Date().getHours(); //Current Hours
+
+
 
   const fetchItems = async () => {
     const response = await fetch(
 //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
-      `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/${query}/arr/2020/2/28/17?appId=544b084a&appKey=5f2e41dee933f04c8eb95d74ef52b0e9&utc=false&numHours=1&maxFlights=10` );
+      `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/flightstatus/rest/v2/json/airport/status/${query}/arr/${year}/${month}/${date}/${hours}?appId=544b084a&appKey=5f2e41dee933f04c8eb95d74ef52b0e9&utc=false&numHours=1&maxFlights=10` );
    
 //Remember to change the date
 
+    
   const data = await response.json();
     console.log(data.flightStatuses);
+    console.log(date);
     setItems(data.flightStatuses);
   };
 
@@ -49,18 +59,24 @@ function Arrivals() {
 
 
   return (
-    <div>
+    <div className="arrivals">
 
         <form  onSubmit={getSearch} className="search-form">
           <input className="search-bar" type="text" value={search} placeholder="Enter an IATA code Ex: LHR" onChange={updateSearch}/>
           <button className="search-button" type="submit">Search</button>
           </form>
+          <h1>Latest arrivals at {query}</h1>
+
           
             {data.map(data => (
-              <h1 key={data.flightId}>
-                <Link to={`/airlines/${data.flightNumber}`}></Link> 
-                {data.carrierFsCode}{data.flightNumber} - {data.departureAirportFsCode}: {data.arrivalAirportFsCode} | Aircraft type: {data.flightEquipment.actualEquipmentIataCode }
-              </h1>              
+              <h2 key={data.flightId}>
+                
+                <Link to={`/news/${data.carrierFsCode + data.flightNumber}`}> 
+
+
+            {data.carrierFsCode}{data.flightNumber}</Link> - {data.departureAirportFsCode}: {data.arrivalAirportFsCode} | Aircraft type: {data.flightEquipment.actualEquipmentIataCode }
+
+              </h2>              
               
             ))} 
 

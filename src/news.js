@@ -3,6 +3,7 @@ import style from './news.module.css';
 import {Link} from 'react-router-dom';
 
 
+
 function News({ match }) {
 
   useEffect(() => {
@@ -24,7 +25,7 @@ function News({ match }) {
  
     const fetchNews = async () => {
       const fetchNews = await fetch(
-        `http://newsapi.org/v2/everything?q=${match.params.id}&apiKey=6e257f34188c4b608d5558758b35bf2f`);
+        `https://cors-anywhere.herokuapp.com/http://newsapi.org/v2/everything?q=${match.params.id}&apiKey=6e257f34188c4b608d5558758b35bf2f`);
   
         const item = await fetchNews.json();
         console.log(item.articles);

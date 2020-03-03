@@ -8,8 +8,8 @@ function Nav() {
                 Aviation Suite
             </h3>
             <ul className="nav-links">
-                <Link to="/about">
-                <li>About</li></Link>
+                {/* <Link to="/about">
+                <li>About</li></Link> */}
                 <Link to="/shop">
                 <li>Airports</li>
                 </Link>
@@ -19,8 +19,8 @@ function Nav() {
                 <Link to="/arrivals">
                 <li>Arrivals</li>
                 </Link>
-                {/* <Link to="/news">
-                <li>News</li></Link> */}
+                <Link to="/autocomplete">
+                <li>Auto</li></Link>
             </ul>
         </nav>
   );

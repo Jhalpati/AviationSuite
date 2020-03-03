@@ -16,7 +16,8 @@ function Airlines() {
 
   const [data, setItems] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('AA');
+  const [query, setQuery] = useState('BA');
+  const [loading, setLoading] = useState(true);
 
  
   useEffect(() =>{
@@ -34,7 +35,8 @@ function Airlines() {
   const data = await response.json();
      console.log(data.airlines);
     setItems(data.airlines);
-  };
+    setLoading(false);
+  }; 
 
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -52,14 +54,15 @@ function Airlines() {
     <div>
 
         <form  onSubmit={getSearch} className="search-form">
-          <input className="search-bar" type="text" value={search} placeholder="Enter IATA code Ex: LHR" onChange={updateSearch}/>
+          <input className="search-bar" type="text" value={search} placeholder="Enter an airline code Ex: BA" onChange={updateSearch}/>
           <button className="search-button" type="submit">Search</button>
           </form>
-          
+ 
             {data.map(data => (
-              <h1 key={data.fs}>
+              <h2 key={data.fs}>
                   <Link to={`/airlines/${data.fs}`}>{data.iata}: {data.name}</Link>
-              </h1>              
+                  
+              </h2 >              
               
             ))} 
           

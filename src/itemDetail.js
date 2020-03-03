@@ -20,27 +20,17 @@ function Item({match}) {
   
       const items = await fetchItems.json();
       console.log(items.airports[0]);
-      setItems(items.airports[0]);
+      setItems(items.airports);
   
   
     };
 
-    const fetchNews = async () => {
-      const fetchNews = await fetch(
-        `http://newsapi.org/v2/everything?q=${match.params.id}&apiKey=6e257f34188c4b608d5558758b35bf2f`);
-  
-        const item = await fetchNews.json();
-        console.log(item.articles[0],[1],[2]);
-        setItems(item.articles[0]);
-
-        
-      }
 
 
   
 
     fetchItems();
-    fetchNews();
+    // fetchNews();
     
   
   },[]);
@@ -50,19 +40,22 @@ function Item({match}) {
 
   return (
     <div className="airport-info">
-        <h1>Name: {items.name}</h1>
+        {/* <h1>Name: {items.name}</h1>
         <h2>City:{items.city}, {items.countryName}</h2>
         <h3>Local time:{items.localTime}</h3>
-        <Link to={`/news/${items.name}`}>News about: {items.name}</Link>
+        <Link to={`/news/${items.name}`}>News about: {items.name}</Link> */}
  
 
 
 
-        {/* {items.map(item => (
-          <h1 key={item.name}>
-             <Link to={`/news/${item.name}`}>{item.name}</Link>
-          </h1>
-        ))} */}
+        {items.map(data => (
+          <div key={data.fs}>
+            <h1>Name: {data.name}</h1>
+              <h2>City:{data.city}, {data.countryName}</h2>
+            <h3>Local time:{data.localTime}</h3>
+             <h2><Link to={`/news/${data.name}`}>News about: {data.name}</Link></h2>
+          </div>
+        ))}
 
 
 

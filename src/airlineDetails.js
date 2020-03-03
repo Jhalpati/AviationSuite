@@ -34,9 +34,9 @@ function AirlineDetails({match}) {
   return (
     <div className="airport-info">
          <h1>Name: {item.name}</h1> 
-        <h2>IATA: {item.iata}</h2>
-        <h4>Contact: {item.phoneNumber}</h4>
-        <Link to={`/news/${item.name}`}>News about: {item.name}</Link>
+        <h2>IATA code: {item.iata}</h2>
+        <h2>Contact: {item.phoneNumber}</h2>
+        <h2><Link to={`/news/${item.name}`}>News about: {item.name}</Link></h2>
         
     </div>
 

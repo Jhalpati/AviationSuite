@@ -58,6 +58,7 @@ function Shop() {
           <input className="search-bar" type="text" value={search} placeholder="Enter IATA code Ex: LHR" onChange={updateSearch}/>
           <button className="search-button" type="submit">Search</button>
           </form>
+
           
             {data.map(data => (
               <h1 key={data.fs}>
