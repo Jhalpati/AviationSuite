@@ -8,6 +8,7 @@ import Airlines from './airlines';
 import airlineDetails from './airlineDetails';
 import Arrivals from './Arrivals';
 import News from './news';
+import Advisory from './Advisory'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
@@ -23,6 +24,7 @@ function App() {
       <Route path="/shop/:id" component={itemDetail} />
       <Route path="/airlines/:id" exact component={airlineDetails}/>
       <Route path="/news/:id" component={News}/>
+      <Route path="/advisory/:countryCode" component={Advisory}/>
       <Route path="/arrivals" component={Arrivals}/>
       {/* <Route path="/news" component={News}/> */}
       </Switch>

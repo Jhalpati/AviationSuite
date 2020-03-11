@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react';
 import './App.css';
 import {Link} from 'react-router-dom';
+import Advisory from './Advisory';
 
 
 function Item({match}) {
@@ -16,20 +17,20 @@ function Item({match}) {
         match.params.id
       }?appId=${APP_ID}&appKey=${APP_KEY}`)
 
-      
+    
   
       const items = await fetchItems.json();
       console.log(items.airports[0]);
       setItems(items.airports);
-  
-  
-    };
+    }
 
+  
 
 
   
 
     fetchItems();
+
     // fetchNews();
     
   
@@ -54,6 +55,9 @@ function Item({match}) {
               <h2>City:{data.city}, {data.countryName}</h2>
             <h3>Local time:{data.localTime}</h3>
              <h2><Link to={`/news/${data.name}`}>News about: {data.name}</Link></h2>
+             <h2><Link to={`/Advisory/${data.countryCode}/`}>News about Covid-19 in {data.countryName}</Link></h2>
+          
+             
           </div>
         ))}
 
@@ -67,11 +71,6 @@ function Item({match}) {
 
 
         
-        {/* {items.map(item => (
-              <h1 key={item.name}>
-                  <Link to={`/news/${item.name}`}>Link</Link>
-              </h1>              
-            ))}  */}
           
 
 
