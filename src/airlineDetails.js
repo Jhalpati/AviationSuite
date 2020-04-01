@@ -14,8 +14,8 @@ function AirlineDetails({match}) {
   },[]);
 
   const [item, setItem] = useState([]);
-  const APP_ID = '544b084a';
-  const APP_KEY= '5f2e41dee933f04c8eb95d74ef52b0e9';
+  const APP_ID = 'feaaeb2e';
+  const APP_KEY= '36dd3313e18aceaf1eb36129b0c4efce';
   
 
   const fetchItem = async () => {

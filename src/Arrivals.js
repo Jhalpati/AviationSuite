@@ -12,12 +12,12 @@ function Arrivals() {
       fetchItems();
   },[]);
 
-  const APP_ID = '544b084a';
-  const APP_KEY= '5f2e41dee933f04c8eb95d74ef52b0e9';
+  const APP_ID = 'feaaeb2e';
+  const APP_KEY= '36dd3313e18aceaf1eb36129b0c4efce';
 
   const [data, setItems] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('LHR');
+  const [query, setQuery] = useState('lhr');
 
  
   useEffect(() =>{
@@ -41,8 +41,7 @@ function Arrivals() {
 
     
   const data = await response.json();
-    console.log(data.flightStatuses);
-    console.log(date);
+    console.log(data);
     setItems(data.flightStatuses);
   };
 
@@ -68,17 +67,7 @@ function Arrivals() {
           <h1>Latest arrivals at {query}</h1>
 
           
-            {data.map(data => (
-              <h2 key={data.flightId}>
-                
-                <Link to={`/news/${data.carrierFsCode + data.flightNumber}`}> 
 
-
-            {data.carrierFsCode}{data.flightNumber}</Link> - {data.departureAirportFsCode}: {data.arrivalAirportFsCode} | Aircraft type: {data.flightEquipment.actualEquipmentIataCode }
-
-              </h2>              
-              
-            ))} 
 
 {/* <Link to={`/news/${data.carrierFsCode+data.flightNumber}`}> */}
 

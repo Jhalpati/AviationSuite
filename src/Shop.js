@@ -10,8 +10,8 @@ function Shop() {
 
 
 
-  const APP_ID = '544b084a';
-  const APP_KEY= '5f2e41dee933f04c8eb95d74ef52b0e9';
+  const APP_ID = 'feaaeb2e';
+  const APP_KEY= '36dd3313e18aceaf1eb36129b0c4efce';
 
   const [data, setItems] = useState([]);
   const [search, setSearch] = useState('');
@@ -24,7 +24,7 @@ function Shop() {
   //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
         `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}`);
         
-      
+
     
   
     const data = await response.json();

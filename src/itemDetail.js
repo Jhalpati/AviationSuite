@@ -7,8 +7,8 @@ import Advisory from './Advisory';
 function Item({match}) {
 
   const [items, setItems, item] = useState([]);
-  const APP_ID = '544b084a';
-  const APP_KEY= '5f2e41dee933f04c8eb95d74ef52b0e9';
+  const APP_ID = 'feaaeb2e';
+  const APP_KEY= '36dd3313e18aceaf1eb36129b0c4efce';
 
 
   useEffect(() => {
@@ -55,7 +55,7 @@ function Item({match}) {
               <h2>City:{data.city}, {data.countryName}</h2>
             <h3>Local time:{data.localTime}</h3>
              <h2><Link to={`/news/${data.name}`}>News about: {data.name}</Link></h2>
-             <h2><Link to={`/Advisory/${data.countryCode}/`}>News about Covid-19 in {data.countryName}</Link></h2>
+             <h2><Link to={`/Advisory/${data.countryCode}/`}>Covid-19 advisory for {data.countryName}</Link></h2>
           
              
           </div>

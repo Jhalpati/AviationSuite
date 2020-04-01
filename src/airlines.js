@@ -11,13 +11,15 @@ function Airlines() {
       fetchItems();
   },[]);
 
-  const APP_ID = '544b084a';
-  const APP_KEY= '5f2e41dee933f04c8eb95d74ef52b0e9';
+  const APP_ID = 'feaaeb2e';
+  const APP_KEY= '36dd3313e18aceaf1eb36129b0c4efce';
 
   const [data, setItems] = useState([]);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('BA');
   const [loading, setLoading] = useState(true);
+
+
 
  
   useEffect(() =>{
@@ -30,7 +32,9 @@ function Airlines() {
 //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
       `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airlines/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}` );
    
-
+    // componentDidMount(){
+    //   axios.get
+    // }
 
   const data = await response.json();
      console.log(data.airlines);
@@ -50,12 +54,17 @@ function Airlines() {
   }
 
 
+
+
   return (
     <div>
 
         <form  onSubmit={getSearch} className="search-form">
           <input className="search-bar" type="text" value={search} placeholder="Enter an airline code Ex: BA" onChange={updateSearch}/>
-          <button className="search-button" type="submit">Search</button>
+          <button className="search-button" type="submit" >
+          
+            
+            Search</button>
           </form>
  
             {data.map(data => (

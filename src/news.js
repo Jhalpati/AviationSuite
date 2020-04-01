@@ -16,8 +16,8 @@ function News({ match }) {
 
   console.log(match);
   const [item, setItem] = useState([]);
-  const APP_ID = '544b084a';
-  const APP_KEY= '5f2e41dee933f04c8eb95d74ef52b0e9';
+  const APP_ID = 'feaaeb2e';
+  const APP_KEY= '36dd3313e18aceaf1eb36129b0c4efce';
   
 
 
@@ -66,7 +66,7 @@ function News({ match }) {
         
     <React.Fragment>
 
-      <h2 key={data.title}>{data.title} | <a target="_blank" href={data.url}>Read more</a>
+      <h2 key={data.author}>{data.title} | <a target="_blank" href={data.url}>Read more</a>
       </h2>  
       <img src={data.urlToImage} width="30%"/>
       

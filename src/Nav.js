@@ -16,11 +16,10 @@ function Nav() {
                 <Link to="/airlines">
                 <li>Airlines</li>
                 </Link>
-                <Link to="/arrivals">
+                {/* <Link to="/arrivals">
                 <li>Arrivals</li>
-                </Link>
-                <Link to="/autocomplete">
-                <li>Auto</li></Link>
+                </Link> */}
+
             </ul>
         </nav>
   );
