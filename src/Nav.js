@@ -10,11 +10,14 @@ function Nav() {
             <ul className="nav-links">
                 {/* <Link to="/about">
                 <li>About</li></Link> */}
-                <Link to="/shop">
+                <Link to="/airports">
                 <li>Airports</li>
                 </Link>
                 <Link to="/airlines">
                 <li>Airlines</li>
+                </Link>
+                <Link to="/ER">
+                    <li>Covid-19</li>
                 </Link>
                 {/* <Link to="/arrivals">
                 <li>Arrivals</li>

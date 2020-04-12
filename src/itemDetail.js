@@ -55,7 +55,8 @@ function Item({match}) {
               <h2>City:{data.city}, {data.countryName}</h2>
             <h3>Local time:{data.localTime}</h3>
              <h2><Link to={`/news/${data.name}`}>News about: {data.name}</Link></h2>
-             <h2><Link to={`/Advisory/${data.countryCode}/`}>Covid-19 advisory for {data.countryName}</Link></h2>
+             <h2><Link to={`/Advisory/${data.countryCode}/`} target="_blank">Covid-19 advisory for {data.countryName}</Link></h2>
+             <h2><Link to={`/CovidDetail/${data.countryName}/`} >Covid-19 stats of {data.countryName}</Link></h2>
           
              
           </div>

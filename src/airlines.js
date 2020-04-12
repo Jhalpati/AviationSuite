@@ -17,7 +17,8 @@ function Airlines() {
   const [data, setItems] = useState([]);
   const [search, setSearch] = useState('');
   const [query, setQuery] = useState('BA');
-  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
 
 
@@ -28,6 +29,10 @@ function Airlines() {
   
 
   const fetchItems = async () => {
+    setLoading(true);
+    setError(false);
+
+    try {
     const response = await fetch(
 //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
       `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airlines/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}` );
@@ -39,8 +44,16 @@ function Airlines() {
   const data = await response.json();
      console.log(data.airlines);
     setItems(data.airlines);
-    setLoading(false);
-  }; 
+
+    
+    
+  }
+
+  catch (error) {
+    setError(true);
+  }
+  setLoading(false);}
+
 
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -65,7 +78,17 @@ function Airlines() {
           
             
             Search</button>
+       
+
           </form>
+
+          {
+      loading && <div style={{color: `green`}}><h1>Loading</h1></div>
+    }
+
+{
+        error && <div style={{color: `red`}}><h1>An error occurred, while fetching api</h1></div>
+      }
  
             {data.map(data => (
               <h2 key={data.fs}>

@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
 import Nav from './Nav';
-import Shop from './Shop';
-import About from './About';
+import airports from './airports';
 import itemDetail from './itemDetail';
 import Airlines from './airlines';
 import airlineDetails from './airlineDetails';
 import Arrivals from './Arrivals';
 import News from './news';
-import Advisory from './Advisory'
-import Loader from './Loader'
+import Advisory from './Advisory';
+import CovidDetail from './CovidDetail';
+import ER from './ErrorHandling';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 
 
 function App() {
@@ -19,15 +20,17 @@ function App() {
     <div className="App">
       <Nav/>
       <Switch>
-      <Route path="/about" component={About} />
-      <Route path="/shop" exact component={Shop} />
+
+      <Route path="/airports" exact component={airports} />
       <Route path="/airlines" exact component={Airlines} /> 
-      <Route path="/shop/:id" component={itemDetail} />
+      <Route path="/airports/:id" component={itemDetail} />
       <Route path="/airlines/:id" exact component={airlineDetails}/>
       <Route path="/news/:id" component={News}/>
       <Route path="/advisory/:countryCode" component={Advisory}/>
       <Route path="/arrivals" component={Arrivals}/>
-      <Route path="/loader" component={Loader}/>
+      <Route path="/covidDetail/:countryName" component={CovidDetail}/>
+      <Route path="/ER" component={ER}/>
+
       </Switch>
     </div>
     </Router>

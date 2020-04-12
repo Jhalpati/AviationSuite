@@ -5,7 +5,7 @@ import Advisory from './Advisory';
 
 
 
-function Shop() {
+function Airports() {
 
 
 
@@ -15,27 +15,44 @@ function Shop() {
 
   const [data, setItems] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('GB');
+  const [query, setQuery] = useState('lhr');
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
  
   useEffect(() =>{
     const fetchItems = async () => {
+      setLoading(true);
+      setError(false);
+
+    
+      try{
       const response = await fetch(
   //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
         `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}`);
         
 
-    
+      
   
     const data = await response.json();
        console.log(data.airports);
       setItems(data.airports);
+    
+    }
 
+    catch (error) {
+      setError(true);
+    }
+    setLoading(false);
+  
+  }
 
       
-    };
+    
+  
     fetchItems();
   }, [query])
+
   
 
 
@@ -52,6 +69,7 @@ function Shop() {
   }
 
 
+
   return (
     <div>
 
@@ -60,10 +78,18 @@ function Shop() {
           <button className="search-button" type="submit">Search</button>
           </form>
 
+          {
+      loading && <div style={{color: `green`}}><h1>Loading</h1></div>
+    }
+
+{
+        error && <div style={{color: `red`}}><h1>An error occurred, while fetching api</h1></div>
+      }
+
           
             {data.map(data => (
               <h1 key={data.fs}>
-                  <Link to={`/shop/${data.fs}`}>{data.iata}: {data.name}, {data.countryName}</Link>
+                  <Link to={`/Airports/${data.fs}`}>{data.iata}: {data.name}, {data.countryName}</Link>
               </h1>              
             ))} 
 
@@ -75,4 +101,4 @@ function Shop() {
  )
 }
 
-export default Shop;
+export default Airports;
