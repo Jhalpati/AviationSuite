@@ -2,7 +2,25 @@ import React,{useState, useEffect} from 'react';
 import './App.css';
 import {Link} from 'react-router-dom';
 import Advisory from './Advisory';
+import {Card, CssBaseline, Container, CardContent, Typography, Grid, makeStyles} from '@material-ui/core';
+import styles from './CovidDetails.module.css'; 
 
+const useStyles = makeStyles({
+  root: {
+    minWidth: 100,
+  },
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
+  },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
 
 function CovidDetail({match}) {
 
@@ -35,21 +53,16 @@ function CovidDetail({match}) {
   },[]);
 
 
-
+  const classes = useStyles();
+  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <div className="airport-info">
-        <h1>Name: {items.country}</h1>
-        <h2>Cases:{items.cases}</h2>
-        <h2>Cases today:{items.todayCases}</h2>
-        <h2>Deaths:{items.deaths}</h2>
-        <h2>Deaths today:{items.todayDeaths}</h2>
-        <h2>Recovered:{items.recovered}</h2>
-        <h2>Active:{items.active}</h2>
-        <h2>Critical:{items.critical}</h2>
-        <h2>First case:{items.firstCase}</h2>
 
-        <p><b>Information from www.worldometers.info</b></p>
+
+        
+
+        
 
 
  
@@ -76,6 +89,25 @@ function CovidDetail({match}) {
 
 
 
+      <div className={styles.container}>
+      <Card className={classes.root}>
+      <CardContent>
+        <Typography variant="h1" >Name: {items.country}</Typography>
+        <Typography variant="h3">Cases:{items.cases}</Typography>
+        <Typography variant="h3">Cases today:{items.todayCases}</Typography>
+        <Typography variant="h3">Deaths:{items.deaths}</Typography>
+        <Typography variant="h3">Deaths today:{items.todayDeaths}</Typography>
+        <Typography variant="h3">Recovered:{items.recovered}</Typography>
+        <Typography variant="h3">Active:{items.active}</Typography>
+        <Typography variant="h3">Critical:{items.Critical}</Typography>
+        <Typography variant="h3">First Case:{items.firstCase}</Typography>
+        <Typography variant="h5">Information from www.worldometers.info</Typography>
+
+        </CardContent>
+
+    </Card>
+      
+      </div>
         
           
 
@@ -83,6 +115,7 @@ function CovidDetail({match}) {
 
   
     </div>
+
   );
 }
 
