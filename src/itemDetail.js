@@ -13,7 +13,7 @@ function Item({match}) {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const fetchItems = await fetch(`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${
+      const fetchItems = await fetch(`https://yacdn.org/proxy/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${
         match.params.id
       }?appId=${APP_ID}&appKey=${APP_KEY}`)
 

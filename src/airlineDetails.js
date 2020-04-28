@@ -19,7 +19,7 @@ function AirlineDetails({match}) {
   
 
   const fetchItem = async () => {
-    const fetchItem = await fetch(`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airlines/rest/v1/json/iata/${
+    const fetchItem = await fetch(`https://yacdn.org/proxy/https://api.flightstats.com/flex/airlines/rest/v1/json/iata/${
       match.params.id
     }?appId=${APP_ID}&appKey=${APP_KEY}`)
     const item = await fetchItem.json();

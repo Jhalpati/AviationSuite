@@ -92,15 +92,15 @@ function CovidDetail({match}) {
       <div className={styles.container}>
       <Card className={classes.root}>
       <CardContent>
-        <Typography variant="h1" >Name: {items.country}</Typography>
-        <Typography variant="h3">Cases:{items.cases}</Typography>
-        <Typography variant="h3">Cases today:{items.todayCases}</Typography>
-        <Typography variant="h3">Deaths:{items.deaths}</Typography>
-        <Typography variant="h3">Deaths today:{items.todayDeaths}</Typography>
-        <Typography variant="h3">Recovered:{items.recovered}</Typography>
-        <Typography variant="h3">Active:{items.active}</Typography>
-        <Typography variant="h3">Critical:{items.Critical}</Typography>
-        <Typography variant="h3">First Case:{items.firstCase}</Typography>
+        <Typography variant="h3" >Name: {items.country}</Typography>
+        <Typography variant="h4">Cases:{items.cases}</Typography>
+        <Typography variant="h4">Cases today:{items.todayCases}</Typography>
+        <Typography variant="h4">Deaths:{items.deaths}</Typography>
+        <Typography variant="h4">Deaths today:{items.todayDeaths}</Typography>
+        <Typography variant="h4">Recovered:{items.recovered}</Typography>
+        <Typography variant="h4">Active:{items.active}</Typography>
+        <Typography variant="h4">Critical:{items.Critical}</Typography>
+        <Typography variant="h4">First Case:{items.firstCase}</Typography>
         <Typography variant="h5">Information from www.worldometers.info</Typography>
 
         </CardContent>

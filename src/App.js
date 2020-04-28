@@ -9,7 +9,8 @@ import Arrivals from './Arrivals';
 import News from './news';
 import Advisory from './Advisory';
 import CovidDetail from './CovidDetail';
-import ER from './ErrorHandling';
+import ER from './Covid';
+import NoMatch from './NoMatch';
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 
@@ -30,6 +31,8 @@ function App() {
       <Route path="/arrivals" component={Arrivals}/>
       <Route path="/covidDetail/:countryName" component={CovidDetail}/>
       <Route path="/ER" component={ER}/>
+      <Route path="{NoMatch}" component={NoMatch} />
+
 
       </Switch>
     </div>

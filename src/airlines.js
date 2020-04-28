@@ -8,7 +8,7 @@ function Airlines() {
 
 
   useEffect(() => {
-      fetchItems();
+      
   },[]);
 
   const APP_ID = 'feaaeb2e';
@@ -24,10 +24,6 @@ function Airlines() {
 
  
   useEffect(() =>{
-    fetchItems();
-  }, [query])
-  
-
   const fetchItems = async () => {
     setLoading(true);
     setError(false);
@@ -35,7 +31,7 @@ function Airlines() {
     try {
     const response = await fetch(
 //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
-      `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airlines/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}` );
+      `https://yacdn.org/proxy/https://api.flightstats.com/flex/airlines/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}` );
    
     // componentDidMount(){
     //   axios.get
@@ -46,13 +42,17 @@ function Airlines() {
     setItems(data.airlines);
 
     
-    
+      
   }
 
   catch (error) {
     setError(true);
   }
-  setLoading(false);}
+  setLoading(false);
+};
+
+  fetchItems();
+}, [query])
 
 
   const updateSearch = e => {
@@ -74,22 +74,21 @@ function Airlines() {
 
         <form  onSubmit={getSearch} className="search-form">
           <input className="search-bar" type="text" value={search} placeholder="Enter an airline code Ex: BA" onChange={updateSearch}/>
-          <button className="search-button" type="submit" >
-          
-            
-            Search</button>
+          <button className="search-button" type="submit" >Search</button>
        
-
           </form>
 
-          {
-      loading && <div style={{color: `green`}}><h1>Loading</h1></div>
-    }
-
-{
-        error && <div style={{color: `red`}}><h1>An error occurred, while fetching api</h1></div>
+            {
+        error && <div style={{color: `red`}}><h1>An error occurred, while fetching API</h1></div>
       }
+
+          
+
+          {
+      loading && <div style={{color: `green`}}><h1>Fetching details for "<strong>{query}</strong>"</h1></div>
+    }
  
+ <div>
             {data.map(data => (
               <h2 key={data.fs}>
                   <Link to={`/airlines/${data.fs}`}>{data.iata}: {data.name}</Link>
@@ -97,6 +96,8 @@ function Airlines() {
               </h2 >              
               
             ))} 
+
+</div>
           
 
     </div>

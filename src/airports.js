@@ -29,7 +29,7 @@ function Airports() {
       try{
       const response = await fetch(
   //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
-        `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}`);
+        `https://yacdn.org/proxy/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}`);
         
 
       
@@ -76,15 +76,22 @@ function Airports() {
         <form  onSubmit={getSearch} className="search-form">
           <input className="search-bar" type="text" value={search} placeholder="Enter IATA code Ex: LHR" onChange={updateSearch}/>
           <button className="search-button" type="submit">Search</button>
-          </form>
+          
 
-          {
-      loading && <div style={{color: `green`}}><h1>Loading</h1></div>
-    }
-
-{
+          {/* {
         error && <div style={{color: `red`}}><h1>An error occurred, while fetching api</h1></div>
-      }
+        }  */}
+
+      </form>
+
+        {        error && <div style={{color: `red`}}><h1>An error occurred, while fetching API</h1></div>
+}
+      
+          {
+      loading && <div style={{color: `green`}}><h1>Fetching Covid-19 details of"<strong>{query}</strong>"</h1></div>
+          }
+
+
 
           
             {data.map(data => (

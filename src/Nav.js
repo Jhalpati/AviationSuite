@@ -1,24 +1,31 @@
 import React from 'react';
 import './App.css';
 import {Link} from 'react-router-dom'
+import {Card, CssBaseline, Container, CardContent, Typography, Grid, makeStyles, MenuItem} from '@material-ui/core';
+
 function Nav() {
   return (
         <nav>
-            <h3>
+            <Typography variant="h3">
                 Aviation Suite
-            </h3>
+            </Typography>
+            
             <ul className="nav-links">
+            <MenuItem>
+            <Link to="/airports">Airports</Link>
+            </MenuItem>
                 {/* <Link to="/about">
                 <li>About</li></Link> */}
-                <Link to="/airports">
-                <li>Airports</li>
-                </Link>
+            <MenuItem>  
                 <Link to="/airlines">
                 <li>Airlines</li>
                 </Link>
+            </MenuItem>
+            <MenuItem>
                 <Link to="/ER">
                     <li>Covid-19</li>
                 </Link>
+            </MenuItem>
                 {/* <Link to="/arrivals">
                 <li>Arrivals</li>
                 </Link> */}

@@ -24,8 +24,12 @@ nav{
   list-style: none;
   text-shadow: black;
   font-weight: 500;
-
 }
+
+/* ul :hover {
+  background-color: white;
+} */
+
 
 .search-form{
   min-height: 10vh;
@@ -46,6 +50,7 @@ nav{
   padding: 10px 20px;
   color: white;
 }
+
 
 
 
