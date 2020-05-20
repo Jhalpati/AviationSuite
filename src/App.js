@@ -14,6 +14,7 @@ import CovidDetail from "./components/CovidDetail";
 import ER from "./components/Covid";
 import NoMatch from "./NoMatch";
 
+// https://github.com/Bogdan-Lyashenko/js-code-to-svg-flowchart
 
 // Creating a home page component
 const homePage = () => {
@@ -27,11 +28,10 @@ const homePage = () => {
   );
 };
 
-
-
 // Main function starts here
 function App() {
   return (
+    // React Router used for correct routing of components and dynamic routing
     <Router>
       <div className="App">
         <Nav />
@@ -48,14 +48,16 @@ function App() {
           <Route component={homePage} />
         </Switch>
       </div>
+      {/* Div below acts a footer */}
       <div className="App">
-        <p><b>Developed by Jaykumar Halpati</b></p>
-      <footer/>
-
+        <p>
+          <b>Developed by Jaykumar Halpati</b>
+        </p>
+        <footer />
       </div>
     </Router>
-  
   );
 }
 
+// App is exported to index.html
 export default App;

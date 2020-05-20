@@ -1,3 +1,4 @@
+// Importing required modules, components & files
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Advisory from "./Advisory";
@@ -12,6 +13,7 @@ import {
 } from "@material-ui/core";
 import styles from "./CovidDetails.module.css";
 
+// useStyles is used to provide aesthetics to some elements of the component
 const useStyles = makeStyles({
   root: {
     minWidth: 100,
@@ -29,19 +31,24 @@ const useStyles = makeStyles({
   },
 });
 
+// CovidDetail funtion starts here
 function CovidDetail({ match }) {
   const [items, setItems, item] = useState([]);
   const APP_ID = "feaaeb2e";
   const APP_KEY = "36dd3313e18aceaf1eb36129b0c4efce";
 
+  // useEffect hook is used for state management
   useEffect(() => {
     const fetchItems = async () => {
+      // fetch() is used to make a request to the API
       const fetchItems = await fetch(
+        // No proxy was used in this call, unlike calls in other component
         `https://coronavirus-19-api.herokuapp.com/countries/${match.params.countryName}`
       );
-
+      // Response received is stored as const items
       const items = await fetchItems.json();
       console.log(items);
+      // Sets response as items
       setItems(items);
     };
 
@@ -53,20 +60,11 @@ function CovidDetail({ match }) {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
+  // return() allows data to be rendered
   return (
     <div className="airport-info">
-      {/* {items.map(data => (
-          <div key={data.country}>
-
-            <h2>Cases:{data.cases}</h2>
-            <h3>Cases today:{data.todayCases}</h3>
-
-          
-             
-          </div>
-        ))} */}
-
       <div className={styles.container}>
+        {/* Material UI Typography used so that data displayed becomes responsive */}
         <Card className={classes.root}>
           <CardContent>
             <Typography variant="h3">Name: {items.country}</Typography>
@@ -78,10 +76,14 @@ function CovidDetail({ match }) {
             </Typography>
             <Typography variant="h4">Recovered:{items.recovered}</Typography>
             <Typography variant="h4">Active:{items.active}</Typography>
-            <Typography variant="h4">Critical:{items.Critical}</Typography>
-            <Typography variant="h4">First Case:{items.firstCase}</Typography>
+            <Typography variant="h4">Critical:{items.critical}</Typography>
+            {/* <Typography variant="h4">First Case:{items.firstCase}</Typography> */}
             <Typography variant="h5">
-              Information from www.worldometers.info
+              Information from
+              <a href="https://www.worldometers.info" target="_blank">
+                {" "}
+                www.worldometers.info
+              </a>
             </Typography>
           </CardContent>
         </Card>
@@ -90,4 +92,5 @@ function CovidDetail({ match }) {
   );
 }
 
+// ER is exported to App.js
 export default CovidDetail;

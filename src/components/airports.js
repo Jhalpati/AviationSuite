@@ -1,8 +1,8 @@
+// Importing required modules, components & files
 import React, { useState, useEffect } from "react";
 // import "./App.css";
 import { Link } from "react-router-dom";
-import Advisory from "./Advisory";
-
+// Airports function starts here
 function Airports() {
   const APP_ID = "feaaeb2e";
   const APP_KEY = "36dd3313e18aceaf1eb36129b0c4efce";
@@ -24,13 +24,15 @@ function Airports() {
 
       try {
         const response = await fetch(
+          // Proxy was used to make this API call
           //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
-          `https://yacdn.org/proxy/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}`
+          `https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/airports/rest/v1/json/iata/${query}?appId=${APP_ID}&appKey=${APP_KEY}`
         );
 
-        // Response received in JSON format and
+        // Response received in JSON format and  stored as const data
         const data = await response.json();
         console.log(data.airports);
+        // Sets response as data.airports
         setItems(data.airports);
       } catch (error) {
         setError(true);
@@ -41,16 +43,19 @@ function Airports() {
     fetchItems();
   }, [query]);
 
+    // Function to
+    const getSearch = (e) => {
+      e.preventDefault();
+      setQuery(search);
+      // Resets the input
+      setSearch("");
+    };
+    
   const updateSearch = (e) => {
     setSearch(e.target.value);
   };
 
-  // Function to 
-  const getSearch = (e) => {
-    e.preventDefault();
-    setQuery(search);
-    setSearch("");
-  };
+
 
   return (
     <div>
@@ -72,6 +77,7 @@ function Airports() {
         }  */}
       </form>
 
+      {/* Functions for error handling */}
       {error && (
         <div style={{ color: `red` }}>
           <h1>An error occurred, while fetching API</h1>
@@ -97,4 +103,5 @@ function Airports() {
   );
 }
 
+// Airports is exported to App.js
 export default Airports;

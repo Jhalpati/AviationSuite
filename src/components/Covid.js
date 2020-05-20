@@ -1,5 +1,5 @@
+// Importing required modules, components & files
 import React, { useState, useEffect } from "react";
-// import "./App.css";
 import { Link } from "react-router-dom";
 import Advisory from "./Advisory";
 import {
@@ -12,7 +12,8 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import styles from "./CovidDetails.module.css";
-import axios from "axios";
+
+// useStyles is used to provide aesthetics to some elements of the component
 
 const useStyles = makeStyles({
   root: {
@@ -31,17 +32,17 @@ const useStyles = makeStyles({
   },
 });
 
+// ER funtion starts here
 function ER() {
-  const APP_ID = "feaaeb2e";
-  const APP_KEY = "36dd3313e18aceaf1eb36129b0c4efce";
-
   const [data, setItems] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("UK");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // useEffect hook is used for state management
   useEffect(() => {
+    // fetch() is used to make a request to the API
     const fetchItems = async () => {
       setLoading(true);
       setError(false);
@@ -49,11 +50,15 @@ function ER() {
       try {
         const response = await fetch(
           //`https://cors-anywhere.herokuapp.com/https://api.flightstats.com/flex/delayindex/rest/v1/json/region/Asia?appId=${APP_ID}&appKey=${APP_KEY}&classification=5&score=3`
+          // Query entered by the user
+          // No proxy was used in this call, unlike calls in other component
           `https://coronavirus-19-api.herokuapp.com/countries/${query}`
         );
 
+        // Response received is stored as const item
         const data = await response.json();
         console.log(data);
+        // Sets item as (data)
         setItems(data);
       } catch (error) {
         setError(true);
@@ -74,11 +79,14 @@ function ER() {
     setSearch("");
   };
 
+  // Variable for Material-UI's style usage
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
+  // return() allows data to be rendered
   return (
     <div>
+      {/* Form for user input */}
       <form onSubmit={getSearch} className="search-form">
         <input
           className="search-bar"
@@ -91,6 +99,8 @@ function ER() {
           Search
         </button>
       </form>
+
+      {/* Functions for error handling */}
       {error && (
         <div style={{ color: `red` }}>
           <h1>An error occurred, while fetching API</h1>
@@ -105,6 +115,7 @@ function ER() {
         </div>
       )}
 
+      {/* Material UI Typography used so that data displayed becomes responsive */}
       <div className={styles.container}>
         <Card className={classes.root}>
           <CardContent>
@@ -117,10 +128,14 @@ function ER() {
             </Typography>
             <Typography variant="h4">Recovered:{data.recovered}</Typography>
             <Typography variant="h4">Active:{data.active}</Typography>
-            <Typography variant="h4">Critical:{data.Critical}</Typography>
-            <Typography variant="h4">First Case:{data.firstCase}</Typography>
+            <Typography variant="h4">Critical:{data.critical}</Typography>
+            {/* <Typography variant="h4">First Case:{data.firstCase}</Typography> */}
             <Typography variant="h5">
-              Information from www.worldometers.info
+              Information from
+              <a href="https://www.worldometers.info" target="_blank">
+                {" "}
+                www.worldometers.info
+              </a>
             </Typography>
           </CardContent>
         </Card>
@@ -129,4 +144,5 @@ function ER() {
   );
 }
 
+// ER is exported to App.js
 export default ER;
