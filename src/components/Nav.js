@@ -28,12 +28,12 @@ function Nav() {
                 <li>About</li></Link> */}
         <MenuItem>
           <Link to="/airlines">
-            <li>Airlines</li>
+            Airlines
           </Link>
         </MenuItem>
         <MenuItem>
           <Link to="/ER">
-            <li>Covid-19</li>
+            Covid-19
           </Link>
         </MenuItem>
         {/* <Link to="/arrivals">

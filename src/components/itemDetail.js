@@ -35,9 +35,10 @@ function Item({ match }) {
 
   // return() allows data to be rendered
   return (
-    <div className="airport-info">
+    <div className="airport-info" >
       {/* Map function is used to loop over API response which as an array of 10 objects */}
       {items.map((data) => (
+        <React.Fragment>
         <div key={data.fs}>
           <h1>Name: {data.name}</h1>
           <h2>
@@ -59,6 +60,7 @@ function Item({ match }) {
             </Link>
           </h2>
         </div>
+        </React.Fragment>
       ))}
     </div>
   );

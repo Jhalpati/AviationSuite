@@ -34,8 +34,8 @@ function News({ match }) {
       <h1>Latest headlines about {match.params.id}</h1>
       {/* An array was received in response, so a loop with map was created for each element of the array */}
       {item.map((data) => (
-        <React.Fragment>
-          <h2 key={data.url}>
+        <React.Fragment key={data.id}>
+          <h2>
             {data.title} |{" "}
             <a target="_blank" href={data.url}>
               Read more
