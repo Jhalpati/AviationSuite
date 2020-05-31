@@ -18,7 +18,7 @@ function News({ match }) {
     // fetch() is used to make a request to the API
     const fetchNews = await fetch(
       // Proxy was used to make this API call
-      `http://newsapi.org/v2/everything?q=${match.params.id}&apiKey=6e257f34188c4b608d5558758b35bf2f`
+      `https://newsapi.org/v2/everything?q=${match.params.id}&apiKey=6e257f34188c4b608d5558758b35bf2f`
     );
 
     // Response received is stored as const item
