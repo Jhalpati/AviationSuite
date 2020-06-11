@@ -8,10 +8,8 @@ function News({ match }) {
   // useEffect hook is used for state management
   useEffect(() => {
     fetchNews();
-    console.log(match);
   }, []);
 
-  console.log(match);
   const [item, setItem] = useState([]);
 
   const fetchNews = async () => {
@@ -23,7 +21,6 @@ function News({ match }) {
 
     // Response received is stored as const item
     const item = await fetchNews.json();
-    console.log(item.articles);
     // Sets response as item.articles
     setItem(item.articles);
   };

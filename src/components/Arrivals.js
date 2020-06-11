@@ -34,7 +34,6 @@ function Arrivals() {
     //Remember to change the date
 
     const data = await response.json();
-    console.log(data);
     setItems(data.flightStatuses);
   };
 

@@ -22,7 +22,6 @@ function Item({ match }) {
 
       // Response received is stored as const items
       const items = await fetchItems.json();
-      console.log(items.airports[0]);
       // Sets response as items.airports
 
       setItems(items.airports);

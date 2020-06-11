@@ -57,7 +57,6 @@ function ER() {
 
         // Response received is stored as const item
         const data = await response.json();
-        console.log(data);
         // Sets item as (data)
         setItems(data);
       } catch (error) {

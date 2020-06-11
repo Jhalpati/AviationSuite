@@ -31,7 +31,6 @@ function Airports() {
 
         // Response received in JSON format and  stored as const data
         const data = await response.json();
-        console.log(data.airports);
         // Sets response as data.airports
         setItems(data.airports);
       } catch (error) {

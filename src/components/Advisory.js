@@ -18,13 +18,10 @@ function Advisory({ match }) {
 
       // Response received is stored as const items
       const items = await fetchItems.json();
-      console.log(items.data[code].advisory);
       const url = items.data[code].advisory.source;
       // Sets items as (items.data[code].advisory)
       setItems(items.data[code].advisory);
-      console.log(url.slice(33));
       var countries1 = url.slice(33);
-      console.log(countries1);
     };
 
     fetchItems();

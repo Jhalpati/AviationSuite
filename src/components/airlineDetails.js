@@ -8,7 +8,6 @@ function AirlineDetails({ match }) {
     // useEffect hook is used for state management
   useEffect(() => {
     fetchItem();
-    console.log(match);
   }, []);
 
   // Variables such as APP_ID & APP_KEY are declared to be used in API's request url
@@ -25,7 +24,6 @@ function AirlineDetails({ match }) {
 
     // Response received is stored as const item
     const item = await fetchItem.json();
-    console.log(item.airlines[0]);
   // Sets item as (item.airlines[0])
     setItem(item.airlines[0]);
   };

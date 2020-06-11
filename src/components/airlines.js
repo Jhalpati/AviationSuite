@@ -33,7 +33,6 @@ function Airlines() {
 
         // Response received is stored as const data
         const data = await response.json();
-        console.log(data);
         // Sets item as (data.airlines)
         setItems(data.airlines);
         // Error handling state activates when there is problem fetching the API 

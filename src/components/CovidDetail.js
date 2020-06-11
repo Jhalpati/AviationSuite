@@ -47,7 +47,6 @@ function CovidDetail({ match }) {
       );
       // Response received is stored as const items
       const items = await fetchItems.json();
-      console.log(items);
       // Sets response as items
       setItems(items);
     };
